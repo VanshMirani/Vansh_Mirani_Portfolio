@@ -81,7 +81,7 @@ export const projects = [
       'Organized event details and user flow',
       'Modern React-based project structure',
     ],
-    tags: ['React.js', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    tags: ['React.js', 'JavaScript', 'Tailwind CSS', 'Vite'],
     href: 'https://github.com/VanshMirani/event-management-platform',
   },
   {
