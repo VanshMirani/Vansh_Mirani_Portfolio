@@ -57,33 +57,64 @@ export const skillGroups = [
 
 export const projects = [
   {
+    title: 'AssetFlow',
+    type: 'Odoo 2026 Hackathon Project',
+    description:
+      'A hackathon project built during Odoo 2026 to simplify asset tracking and asset management workflows through an organized, practical web-based system.',
+    contributions: [
+      'Asset tracking and management workflow',
+      'Clean dashboard-style user interface',
+      'Organized asset records and status handling',
+      'Built under hackathon timelines with a practical problem-solving approach',
+    ],
+    tags: ['React.js', 'JavaScript', 'Node.js', 'Express.js', 'MongoDB'],
+    href: 'https://github.com/VanshMirani/odoo-hackathon-26',
+  },
+  {
+    title: 'Event Flow',
+    type: 'Event Management Platform',
+    description:
+      'A web-based event management platform focused on organizing event details, improving event flow, and creating a clean user experience for event-related workflows.',
+    contributions: [
+      'Event-focused interface and workflow',
+      'Clean and responsive frontend design',
+      'Organized event details and user flow',
+      'Modern React-based project structure',
+    ],
+    tags: ['React.js', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    href: 'https://github.com/VanshMirani/event-management-platform',
+  },
+  {
     title: 'CoreInventory',
     type: 'Hackathon Full-Stack Platform',
     description:
-      'I worked on a full-stack inventory platform during a hackathon, focused on product records, stock levels, and a practical dashboard flow.',
+      'A full-stack inventory management platform developed during a hackathon to manage products, stock levels, and inventory records through a centralized dashboard.',
     contributions: [
-      'Built the frontend screens and dashboard layout',
-      'Connected interface flows with backend data',
-      'Implemented inventory-focused features under hackathon timelines',
-      'Improved the product and stock management experience',
+      'Dashboard design and frontend development',
+      'Product and stock management workflow',
+      'Backend integration with inventory data',
+      'Built collaboratively as a hackathon team project',
     ],
-    tags: ['Full Stack', 'Inventory', 'Dashboard', 'Hackathon'],
+    tags: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'MongoDB'],
     href: 'https://github.com/VanshMirani/CoreInventory',
   },
   {
     title: 'Expense Tracker',
     type: 'Full-Stack Web App',
     description:
-      'I built this to make daily expense tracking easier, with organized records and a simple flow for reviewing spending.',
+      'A full-stack expense tracking application for recording, organizing, and managing daily expenses with a clean dashboard and simple user flow.',
     contributions: [
-      'Designed expense entry and listing flows',
-      'Organized data for easier day-to-day tracking',
-      'Worked on full-stack structure and API integration',
-      'Focused on a clean, understandable user experience',
+      'Expense entry and listing workflow',
+      'Expense records for day-to-day tracking',
+      'Full-stack structure with backend integration',
+      'Clean and understandable user interface',
     ],
-    tags: ['Finance', 'Node.js', 'MongoDB', 'Express.js'],
+    tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB'],
     href: 'https://github.com/VanshMirani/Expense-Tracker',
   },
+];
+
+export const archivedProjects = [
   {
     title: 'Birthday Website',
     type: 'Interactive Experience',
