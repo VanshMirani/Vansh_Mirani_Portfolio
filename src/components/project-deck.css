@@ -1,0 +1,422 @@
+.project-deck {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin-inline: auto;
+  color: #e7edf3;
+  isolation: isolate;
+}
+
+@media (min-width: 1280px) {
+  .project-deck {
+    max-width: 640px;
+    margin-inline: auto 0;
+  }
+}
+
+.project-deck-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 18px 14px;
+}
+
+.project-deck-eyebrow {
+  color: #99c7ff;
+  font-size: 10px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.project-deck-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #a0acbb;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.project-deck .deck-touch-hint {
+  display: none;
+}
+
+.project-deck-stage {
+  position: relative;
+  height: 298px;
+  width: calc(100% - 54px);
+  margin-inline: auto;
+  touch-action: pan-y pinch-zoom;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  outline-offset: 9px;
+  border-radius: 19px;
+}
+
+.project-deck-stage:focus-visible {
+  outline: 2px solid #99c7ff;
+}
+
+.project-deck-stage[data-dragging] {
+  cursor: grabbing;
+}
+
+.project-deck-card {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 282px;
+  overflow: hidden;
+  border: 1px solid #3c4b5c;
+  border-radius: 17px;
+  background: #1b2128;
+  box-shadow:
+    0 20px 40px -20px #0009,
+    0 1px 0 #ffffff0a inset;
+  transform-origin: 50% 80%;
+  transform: translate(var(--card-x), var(--card-y))
+    rotate(var(--card-rotation)) scale(var(--card-scale));
+  transition:
+    transform 480ms cubic-bezier(0.22, 0.8, 0.25, 1),
+    opacity 250ms,
+    border-color 250ms;
+}
+
+.project-deck-card::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: #11141865;
+  opacity: 1;
+  transition: opacity 350ms;
+}
+
+.project-deck-card.is-active {
+  border-color: #7a9fc478;
+  transform: translate(var(--drag-x, 0px), 0) rotate(var(--drag-rotation, 0deg));
+}
+
+.project-deck-card.is-active::after {
+  opacity: 0;
+}
+.project-deck-stage[data-dragging] .project-deck-card.is-active {
+  transition: none;
+}
+
+.project-deck-art {
+  position: relative;
+  height: 138px;
+  border-bottom: 1px solid #99c7ff17;
+  overflow: hidden;
+}
+
+.project-deck .project-deck-art .project-art {
+  height: 138px;
+}
+.project-deck .project-deck-art .project-art-identity {
+  transform: scale(0.64);
+}
+.project-deck .project-deck-art .project-art-scene {
+  transition: none;
+}
+.project-deck .project-deck-art .project-art:hover .project-art-scene {
+  transform: none;
+}
+.project-deck .project-deck-art .project-art:hover .project-art-identity {
+  transform: scale(0.64);
+}
+
+.project-deck-category,
+.project-deck-card-number {
+  position: absolute;
+  top: 12px;
+  font-size: 10px;
+  line-height: 18px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  pointer-events: none;
+}
+
+.project-deck-category {
+  left: 14px;
+  padding: 1px 8px;
+  border: 1px solid #a8d0f429;
+  border-radius: 5px;
+  background: #17212de0;
+  color: #c4d5e7;
+}
+
+.project-deck-card-number {
+  right: 15px;
+  color: #a0b7ce;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-deck-body {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 138px);
+  padding: 10px 18px 8px;
+}
+
+.project-deck-body h2 {
+  font-size: clamp(19px, 2.2vw, 25px);
+  line-height: 1.3;
+  letter-spacing: -0.65px;
+  font-weight: 600;
+}
+
+.project-deck-body p {
+  margin-top: 6px;
+  color: #aebbc9;
+  font-size: 12px;
+  line-height: 1.5;
+  max-width: 32ch;
+}
+
+.project-deck-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+  border-top: 1px solid #ffffff13;
+}
+.project-deck-open {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 0 0;
+  border: 0;
+  background: transparent;
+  color: #aed2ff;
+  font-size: 12px;
+  text-align: left;
+}
+.project-deck-live {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 44px;
+  padding-top: 8px;
+  color: #aed2ff;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.project-deck-live:hover {
+  color: #e7f2ff;
+}
+.project-deck-live:focus-visible {
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.project-deck-open:hover {
+  color: #e7f2ff;
+}
+.project-deck-open svg {
+  transition: transform 180ms;
+}
+.project-deck-open:hover svg {
+  transform: translate(2px, -2px);
+}
+.project-deck-open:focus-visible {
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+.project-deck-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 23px;
+  margin-top: 5px;
+}
+
+.project-deck-arrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #3a4654;
+  border-radius: 50%;
+  background: #1b2128;
+  color: #99c7ff;
+  transition:
+    border-color 160ms,
+    background 160ms,
+    transform 160ms;
+}
+
+.project-deck-arrow:hover:not(:disabled) {
+  background: #263342;
+  border-color: #99c7ff;
+}
+.project-deck-arrow:active:not(:disabled) {
+  transform: scale(0.94);
+}
+.project-deck-arrow:disabled {
+  opacity: 0.4;
+}
+
+.project-deck-position {
+  display: flex;
+  gap: 10px;
+  color: #8c9caf;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.project-deck-position strong {
+  color: #e7edf3;
+  font-weight: 500;
+}
+.project-deck-position span {
+  color: #5d7186;
+}
+
+.project-deck-selectors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  margin-top: 3px;
+}
+
+.project-deck-selectors button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #8293a7;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-deck-selectors button span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 25px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition:
+    color 180ms,
+    background 180ms,
+    border-color 180ms;
+}
+
+.project-deck-selectors button:hover span {
+  color: #d6e6f9;
+  background: #222e3a;
+}
+.project-deck-selectors button[aria-pressed="true"] span {
+  color: #b7d8ff;
+  border-color: #99c7ff40;
+  background: #263647;
+}
+.project-deck-selectors button:focus-visible {
+  outline-offset: -3px;
+}
+
+.project-deck-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (pointer: coarse) {
+  .project-deck .deck-desktop-hint {
+    display: none;
+  }
+  .project-deck .deck-touch-hint {
+    display: inline;
+  }
+}
+
+@media (max-width: 540px) {
+  .project-deck {
+    max-width: 370px;
+  }
+  .project-deck-heading {
+    margin: 0 7px 10px;
+    gap: 7px;
+  }
+  .project-deck-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.2px;
+  }
+  .project-deck-hint {
+    font-size: 10px;
+    gap: 4px;
+  }
+  .project-deck-stage {
+    width: calc(100% - 30px);
+    height: 282px;
+  }
+  .project-deck-card {
+    height: 266px;
+    border-radius: 14px;
+    transform: translate(calc(var(--card-x) * 0.55), var(--card-y))
+      rotate(calc(var(--card-rotation) * 0.6)) scale(var(--card-scale));
+  }
+  .project-deck-art,
+  .project-deck .project-deck-art .project-art {
+    height: 126px;
+  }
+  .project-deck-body {
+    height: calc(100% - 126px);
+    padding: 9px 14px 7px;
+  }
+  .project-deck-body h2 {
+    font-size: 21px;
+  }
+  .project-deck-body p {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .project-deck-controls {
+    margin-top: 2px;
+    gap: 21px;
+  }
+  .project-deck-selectors {
+    margin-top: 0;
+    width: calc(100% + 32px);
+    margin-inline: -16px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: safe center;
+    scrollbar-width: thin;
+  }
+  .project-deck-selectors button {
+    flex: 0 0 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-deck *,
+  .project-deck *::after {
+    transition: none !important;
+  }
+  .project-deck-card.is-active {
+    transform: none;
+  }
+}
